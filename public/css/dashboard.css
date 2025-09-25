@@ -15,6 +15,9 @@ body {
     flex-wrap: nowrap;
 }
 
+.dashboard-wrapper > *{
+    width: 100%;
+}
 .sidebar {
     min-width: 220px;
     max-width: 220px;

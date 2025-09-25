@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,4 +34,14 @@ Route::prefix('customer')->name('customer.')->middleware('auth')->group(function
     Route::get('/dashboard', function () {
         return view('customer.dashboard');
     })->name('dashboard');
+});
+
+Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('dashboard');
+    Route::get('manage-users', [AdminController::class, 'manageUsers'])->name('manage-users');
+    Route::get('edit/{id}', [AdminController::class, 'editUser'])->name('edit-user');
+    Route::put('update-user/{id}', [AdminController::class, 'updateUser'])->name('update-user');
+    Route::delete('delete-user/{id}', [AdminController::class, 'deleteUser'])->name('delete-user');
 });

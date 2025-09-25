@@ -17,7 +17,11 @@ class AuthController extends Controller
         ]);
 
         if (auth()->attempt($request->only('email', 'password'))) {
-            return redirect()->route('customer.dashboard');
+            if (auth()->user()->role == 'admin') {
+                return redirect()->route('admin.dashboard');
+            } else {
+                return redirect()->route('customer.dashboard');
+            }
         }
 
         return back()->withErrors([
@@ -42,11 +46,15 @@ class AuthController extends Controller
 
         auth()->login($user);
 
-        return redirect()->route('customer.dashboard');
+        if (auth()->user()->role == 'admin') {
+            return redirect()->route('admin.dashboard');
+        } else {
+            return redirect()->route('customer.dashboard');
+        }
     }
     public function logout()
     {
         auth()->logout();
         return redirect()->route('login');
-    }   
+    }
 }
