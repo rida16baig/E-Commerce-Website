@@ -44,7 +44,7 @@
                 </ul>
                 <form class="d-flex" role="search">
                     <a class="btn btn-outline-primary btn-sm me-2" href="/login">Login</a>
-                    <a class="btn btn-outline-primary btn-sm" href="/signup">Signup</a>
+                    <a class="btn btn-outline-primary btn-sm" href="/vendor/signup">Become a Seller</a>
                 </form>
             </div>
         </div>

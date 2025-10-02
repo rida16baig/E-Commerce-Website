@@ -36,11 +36,13 @@ class AuthController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email',
             'password' => 'required',
+            'role' => 'required|in:customer,vendor',
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'role' => $request->role,
             'password' => $request->password,
         ]);
 
@@ -48,6 +50,8 @@ class AuthController extends Controller
 
         if (auth()->user()->role == 'admin') {
             return redirect()->route('admin.dashboard');
+        }elseif (auth()->user()->role == 'vendor') {
+            return redirect()->route('vendor.dashboard');
         } else {
             return redirect()->route('customer.dashboard');
         }

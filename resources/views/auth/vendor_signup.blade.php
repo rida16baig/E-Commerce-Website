@@ -4,13 +4,13 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header text-center">
-                        <h3>SignUp</h3>
+                    <div class="card-header text-center bg-primary text-white">
+                        <h3>Become a Seller</h3>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('submit.signup.form') }}">
                             @csrf
-                            <input type="hidden" name="role" value="customer">
+                            <input type="hidden" name="role" value="vendor">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Name</label>
                                 <input type="name" class="form-control" id="name" name="name" required autofocus>
