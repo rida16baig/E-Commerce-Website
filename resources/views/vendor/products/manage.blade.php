@@ -30,7 +30,7 @@
                             <td>{{$product->color}}</td>
                             <td>{{$product->discount}}</td>
                             <td>{{$product->quantity}}</td>
-                            <td><a href="#" class="btn btn-warning"><i class="fa fa-edit"></i></a> <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
+                            <td><a href="{{ route('vendor.edit_product',encrypt($product->id)) }}" class="btn btn-warning"><i class="fa fa-edit"></i></a> <a href="{{ route('vendor.delete_product',encrypt($product->id)) }}" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
                         </tr>
                     @endforeach
                 </tbody>

@@ -47,6 +47,9 @@ Route::prefix('vendor')->name('vendor.')->middleware('auth')->group(function () 
     Route::get('manage-products', [VendorController::class , 'manageProducts'])->name('manage_products');
     Route::post('upload_product',[VendorController::class , 'uploadProduct'])->name('upload_product');
     Route::get('/add_product',[VendorController::class,'addProduct'])->name('add_product');
+    Route::get('/edit_product/{id}',[VendorController::class, 'editProduct'])->name('edit_product');
+    Route::post('/edit_product',[VendorController::class,'updateProduct'])->name('update_product');
+    Route::get('/delete_product/{id}',[VendorController::class,'deleteProduct'])->name('delete_product');
 });
 
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
